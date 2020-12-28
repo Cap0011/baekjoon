@@ -13,15 +13,16 @@ int main(){
 	string buf;
 	for(int i=1;i<=n;i++){
 		cin>>buf;
-		nkey[i]=buf;
-		skey[buf]=i;
+		nkey.insert(make_pair(i,buf));
+		skey.insert(make_pair(buf,i));
 	}
-	cout<<nkey.find(1)->second;
 	int key;
 	for(int i=0;i<m;i++){
 		cin>>buf;
-		key = stoi(buf);
-		if(key<=n) cout<<nkey.find(key)->second<<"\n";
-		else cout<<skey.find(buf)->second<<"\n";
+		if(buf.at(0)>='0'&&buf.at(0)<='9'){
+			key = stoi(buf);
+			cout<<nkey[key]<<"\n";
+		}
+		else cout<<skey[buf]<<"\n";
 	}
 }
