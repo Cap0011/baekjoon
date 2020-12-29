@@ -1,12 +1,22 @@
 #include <iostream>
 using namespace std;
-int count[15]={0};
 int main(){
-	count[1]=1;
-	for(int i=2;i<11;i++){
-		count[15] = min(i);
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+
+	int t;
+	cin>>t;
+	int temp;
+	int cnt[15];
+	cnt[1] = 1;
+	cnt[2] = 2;
+	cnt[3] = 4;
+	for(int i=4;i<11;i++){
+		cnt[i] = cnt[i-1]+cnt[i-2]+cnt[i-3];
 	}
-}
-void min(int num){
-	
+	for(int i=0;i<t;i++){
+		cin>>temp;
+		cout<<cnt[temp]<<"\n";
+	}
+	return 0;
 }

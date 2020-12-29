@@ -12,7 +12,8 @@ int main(){
 		for(int j=0;j<i;j++){
 			temp*=31;
 		}
-		sum+=temp;
+		sum+=(temp)%1234567891;
+		sum%=1234567891;
 	}
-	printf("%lld\n",sum%1234567891);
+	printf("%lld\n",sum);
 }
