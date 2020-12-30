@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 int main(){
 	unsigned long long temp;
@@ -7,13 +8,16 @@ int main(){
 	cin>>n;
 	string buf;
 	cin>>buf;
+	long long r = 31;
+	long long M = 1234567891;
 	for(int i=0;i<n;i++){
 		temp = buf.at(i)-'a'+1;
 		for(int j=0;j<i;j++){
-			temp*=31;
+			temp*=r;
+			temp%=M;
 		}
-		sum+=(temp)%1234567891;
-		sum%=1234567891;
+		sum+=temp;
+		sum%=M;
 	}
 	printf("%lld\n",sum);
 }
