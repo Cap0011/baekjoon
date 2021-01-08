@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+int main(){
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+
+	int t;
+	cin>>t;
+	for(int i=0;i<t;i++){
+		int m, n, x, y;
+		cin>>m>>n>>x>>y;
+		int result=-1;
+		for(int j=0;j*m+x<m*n;j++){
+					cout<<'*';
+			for(int k=0;k*n+y<m*n;k++){
+				if(j*m+x==k*n+y){
+					result = j*m+x;
+					break;
+				}
+			}
+		}
+		if(result<0) cout<<"-1"<<'\n';
+		else cout<<result<<'\n';
+	}
+}
